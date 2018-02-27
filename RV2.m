@@ -1,8 +1,6 @@
-% Reikniverkefni 2 liður 1.2:
+%% Reikniverkefni 2 liður 1.2:
 % 1.2 Prófun
-clear all;
-close all;
-clc;
+clear all; close all; clc;
 
 n=0:4;
 x1=sin((pi/2).*n);
@@ -101,3 +99,25 @@ grid on
 xlabel('time $n$','interpreter','latex');
 ylabel('amplitude $x[n]$','interpreter','latex');
 title('Imag fft Box Signal','interpreter','latex');
+
+%% Lidur 2.2
+SWF = squareWaveFourier(pi/10, 2*pi, 20);
+eTwo = exampleTwo(pi/10, 2*pi, 300);
+
+subplot(2,1,1);
+bar(SWF, 0.1);
+hold on
+plot(SWF, '.');
+grid on
+title('Square Wave Fourier', 'Interpreter', 'Latex');
+xlabel('sec', 'Interpreter', 'Latex');
+ylabel('Noise amplitude', 'Interpreter', 'Latex');
+
+subplot(2,1,2);
+bar(eTwo, 0.1);
+hold on
+plot(eTwo, '.');
+grid on
+title('Example Two', 'Interpreter', 'Latex');
+xlabel('sec', 'Interpreter', 'Latex');
+ylabel('Noise amplitude', 'Interpreter', 'Latex');
