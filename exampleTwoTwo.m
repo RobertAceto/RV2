@@ -1,4 +1,4 @@
-function y = exampleTwo(T1, T, N)
+function y = exampleTwoTwo(T1, T, N)
 
 SWF = squareWaveFourier(T1, T, N);
 
