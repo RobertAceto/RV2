@@ -1,5 +1,5 @@
 %% Reikniverkefni 2
-% Lidur 1.2 Prófun
+% Lidur 1.2 PrÃ³fun
 clear all; close all; clc;
 
 n=0:4;
@@ -107,9 +107,9 @@ T1 = pi/10;
 T = 4*T1;
 
 SWFone = squareWaveFourier(T1, T, 20);
-SWFtwo = squareWaveFourier(T1, 2*T, 20);
-SWFthree = squareWaveFourier(T1, 4*T, 20);
-SWFfour = squareWaveFourier(T1, 8*T, 20);
+SWFtwo = squareWaveFourier(T1, 2*T, 30);
+SWFthree = squareWaveFourier(T1, 4*T, 40);
+SWFfour = squareWaveFourier(T1, 8*T, 50);
 eTwoOne = approximation(T1, T, 1);
 eTwoTwo = approximation(T1, T, 3);
 eTwoThree = approximation(T1, T, 7);
@@ -127,7 +127,7 @@ grid on
 title('Square Wave Fourier ($T_1 = \frac{\pi}{10}$, $T=4T_1$)', 'Interpreter', 'Latex');
 xlabel('$k$', 'Interpreter', 'Latex');
 ylabel('$x(t)$', 'Interpreter', 'Latex');
-l = legend('$N=1$');
+l = legend('$N=20$');
 set(l,'Interpreter', 'Latex');
 
 subplot(2,2,2);
@@ -138,7 +138,7 @@ grid on
 title('Square Wave Fourier ($T_1 = \frac{\pi}{10}$, $T=8T_1$)', 'Interpreter', 'Latex');
 xlabel('$k$', 'Interpreter', 'Latex');
 ylabel('$x(t)$', 'Interpreter', 'Latex');
-l = legend('$N=2$');
+l = legend('$N=30$');
 set(l,'Interpreter', 'Latex');
 
 subplot(2,2,3);
@@ -149,7 +149,7 @@ grid on
 title('Square Wave Fourier ($T_1 = \frac{\pi}{10}$, $T=16T_1$)', 'Interpreter', 'Latex');
 xlabel('$k$', 'Interpreter', 'Latex');
 ylabel('$x(t)$', 'Interpreter', 'Latex');
-l = legend('$N=3$');
+l = legend('$N=40$');
 set(l,'Interpreter', 'Latex');
 
 subplot(2,2,4);
@@ -160,7 +160,7 @@ grid on
 title('Square Wave Fourier ($T_1 = \frac{\pi}{10}$, $T=32T_1$)', 'Interpreter', 'Latex');
 xlabel('$k$', 'Interpreter', 'Latex');
 ylabel('$x(t)$', 'Interpreter', 'Latex');
-l = legend('$N=4$');
+l = legend('$N=50$');
 set(l,'Interpreter', 'Latex');
 
 %pause(6);
@@ -244,7 +244,7 @@ tt = -(4*(pi/10))/2:0.001:(4*(pi/10))/2;
 
 xt = rectpuls(tt, T1*2);
 counter = 1;
-for i = 10:30:1000 %Hoppuðum um 30 stök í stað 10
+for i = 10:30:1000 %HoppuÃ°um um 30 stÃ¶k Ã­ staÃ° 10
     xNt = approximation(T1, T, i);
     eNt = xt - xNt;
     result(counter) = trapz(tt,power(abs(eNt), 2)); %Heildum eNt
