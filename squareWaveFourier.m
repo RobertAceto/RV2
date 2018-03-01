@@ -1,5 +1,5 @@
 function [ak,k] = squareWaveFourier(T1,T,N)
-k = -N:1:N
+k = -N:1:N;
 w=(2*pi)/T;
 i = 0;
 for counter = k
