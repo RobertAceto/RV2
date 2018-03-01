@@ -1,9 +1,4 @@
-<<<<<<< HEAD:exampleTwo.m
-function y = exampleTwo(T1, T, N)
-=======
 function y = exampleTwoTwo(T1, T, N)
-
->>>>>>> 2d17486724dc1bb46c7fc03a5394609e12e09f9c:exampleTwoTwo.m
 SWF = squareWaveFourier(T1, T, N);
 
 counter = 1;
