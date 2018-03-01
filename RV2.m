@@ -15,7 +15,7 @@ ylabel('amplitude $x[n]$','interpreter','latex');
 title('$x[n]=$ sin$(\frac{\pi}{2}n)$','interpreter','latex');
 axis([0 4 -1.5 1.5]);
 
-pause(3);
+%pause(3);
 
 % Mynd 2: box signal:
 figure
@@ -26,7 +26,7 @@ ylabel('amplitude $x[n]$','interpreter','latex');
 title('Box Signal','interpreter','latex');
 axis([0 4 0 1.25]);
 
-pause(3);
+%pause(3);
 
 [X1DFT]=myDFT(x1);
 [X1fft]=fft(x1);
@@ -64,7 +64,7 @@ xlabel('time $n$','interpreter','latex');
 ylabel('amplitude $x[n]$','interpreter','latex');
 title('Imag fft $x[n]=$ sin$(\frac{\pi}{2}n)$','interpreter','latex');
 
-pause(6);
+%pause(6);
 
 % Mynd 4: test af boxsignali
 figure
@@ -97,7 +97,7 @@ xlabel('time $n$','interpreter','latex');
 ylabel('amplitude $x[n]$','interpreter','latex');
 title('Imag fft Box Signal','interpreter','latex');
 
-pause(6);
+%pause(6);
 
 %% Lidur 2.2
 clear all;close all;clc;
@@ -163,7 +163,7 @@ ylabel('$x(t)$', 'Interpreter', 'Latex');
 l = legend('$N=4$');
 set(l,'Interpreter', 'Latex');
 
-pause(6);
+%pause(6);
 
 %figure for the approximation og the boxsignal
 figure
@@ -180,7 +180,7 @@ l = legend('$N=1$');
 set(l,'Interpreter', 'Latex');
 
 subplot(2,3,2);
-plot(tt, eTwoTwo);
+plot(tt, real(eTwoTwo));
 grid on
 title('Finite series approximation ($T_1 = \frac{\pi}{10}$, $T=4T_1$)', 'Interpreter', 'Latex');
 xlabel('$k$', 'Interpreter', 'Latex');
@@ -191,7 +191,7 @@ l = legend('$N=3$');
 set(l,'Interpreter', 'Latex');
 
 subplot(2,3,3);
-plot(tt, eTwoThree);
+plot(tt, real(eTwoThree));
 grid on
 title('Finite series approximation ($T_1 = \frac{\pi}{10}$, $T=4T_1$)', 'Interpreter', 'Latex');
 xlabel('$k$', 'Interpreter', 'Latex');
@@ -202,7 +202,7 @@ l = legend('$N=7$');
 set(l,'Interpreter', 'Latex');
 
 subplot(2,3,4);
-plot(tt, eTwoFour);
+plot(tt, real(eTwoFour));
 grid on
 title('Finite series approximation ($T_1 = \frac{\pi}{10}$, $T=4T_1$)', 'Interpreter', 'Latex');
 xlabel('$k$', 'Interpreter', 'Latex');
@@ -213,7 +213,7 @@ l = legend('$N=19$');
 set(l,'Interpreter', 'Latex');
 
 subplot(2,3,5);
-plot(tt, eTwoFive);
+plot(tt, real(eTwoFive));
 grid on
 title('Finite series approximation ($T_1 = \frac{\pi}{10}$, $T=4T_1$)', 'Interpreter', 'Latex');
 xlabel('$k$', 'Interpreter', 'Latex');
@@ -231,9 +231,10 @@ xlabel('$k$', 'Interpreter', 'Latex');
 ylabel('$x(t)$', 'Interpreter', 'Latex');
 axis([-1 1 -0.2 1.2]);
 
-pause(6);
 %% Lidur 2.3
-
+%The signal that matlab yields is imaginary but the imaginary parts of the
+%values can be disregarded as approximation errors due to their extremely low values. 
+%So the signal it self is real. 
 
 %% Lidur 2.4
 T1 = pi/10;
@@ -243,11 +244,10 @@ tt = -(4*(pi/10))/2:0.001:(4*(pi/10))/2;
 
 xt = rectpuls(tt, T1*2);
 counter = 1;
-for i = 10:10:1000
+for i = 10:30:1000 %Hoppuðum um 30 stök í stað 10
     xNt = approximation(T1, T, i);
     eNt = xt - xNt;
-    
-    result(counter) = trapz(tt,power(abs(eNt), 2));
+    result(counter) = trapz(tt,power(abs(eNt), 2)); %Heildum eNt
     counter = counter + 1;
 end
 
