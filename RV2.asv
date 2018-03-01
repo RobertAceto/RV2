@@ -256,4 +256,4 @@ plot(result);
 grid on
 title('Error Function', 'Interpreter', 'Latex');
 xlabel('$N$', 'Interpreter', 'Latex');
-ylabel('$E_N$', 'Interpreter', 'Latex');
+ylabel('$$', 'Interpreter', 'Latex');
